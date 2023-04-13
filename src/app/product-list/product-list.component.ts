@@ -15,8 +15,7 @@ function loadFile(url, callback) {
 })
 export class ProductListComponent {
   generate() {
-    loadFile(
-      'https://docxtemplater.com/tag-example.docx',
+    loadFile( 'https://docxtemplater.com/tag-example.docx',
       function (error: Error | null, content: string) {
         if (error) {
           throw error;
@@ -27,10 +26,10 @@ export class ProductListComponent {
           linebreaks: true,
         });
         doc.setData({
-          first_name: 'John',
-          last_name: 'Doe',
-          phone: '0652455478',
-          description: 'New Website',
+          first_name: 'Thuc',
+          last_name: 'Tran',
+          phone: '0968647647',
+          description: 'Demo export docx Angular',
         });
         try {
           // render the document (replace all occurences of {first_name} by John, {last_name} by Doe, ...)
