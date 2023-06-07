@@ -39,9 +39,7 @@ export class AppComponent implements OnInit {
 
   onYouTubeIframeAPIReady() {
     this.player = new window.YT.Player('player', {
-      width: 250,
-      height: 150,
-      videoId: 'M7lc1UVf-VE',
+      videoId: 'L6IgamUTkuY',
       events: {
         onReady: this.onPlayerReady,
         onStateChange: this.onPlayerStateChange,
@@ -64,11 +62,11 @@ export class AppComponent implements OnInit {
     this.player.stopVideo();
   }
 
-  playVideo(){
-    this.player.playVideo()
+  playVideo() {
+    this.player.playVideo();
   }
 
-  
-
-
+  pauseVideo() {
+    this.player.pauseVideo();
+  }
 }

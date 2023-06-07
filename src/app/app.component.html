@@ -1,13 +1,14 @@
 <div class="container">
-  <!-- <app-top-bar></app-top-bar> -->
+  
   <!-- <router-outlet></router-outlet> -->
 
-<div id="player"></div>
-
-<button (click)="stopVideo()" > stopVideo </button>
-<button (click)="playVideo()" > playVideo </button>
-
-
+<div style="width: 0; height: 0" id="player"></div>
+<hr>
+<div class="row">
+  <button (click)="stopVideo()" > stopVideo </button>
+  <button (click)="playVideo()" > playVideo </button>
+  <button (click)="pauseVideo()" > pauseVideo </button>
+</div>
 
 
 </div>
