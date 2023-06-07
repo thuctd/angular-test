@@ -30,7 +30,7 @@ callback && callback();
 export class AppComponent implements OnInit {
   tag: any;
   player;
-  done: boolean;
+  done: boolean = false
   youTubePlayer;
 
   ngOnInit() {
