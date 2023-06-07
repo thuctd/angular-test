@@ -1,20 +1,26 @@
 import { Component, OnInit } from '@angular/core';
-import YouTubePlayer from 'youtube-player';
+var tag = document.createElement('script');
+tag.id = 'iframe-demo';
+tag.src = 'https://www.youtube.com/iframe_api';
+var firstScriptTag = document.getElementsByTagName('script')[0];
+firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
 
-let player;
+declare global {
+  interface Window {
+    recaptchaVerifier: any; // 👈️ turn off type checking
+    dmtSetup: any;
+    phoneNumber: string;
+    fullName: string;
+    step: number;
+    numChange: number;
+    WebGLTrans: number;
+    [key: string]: any;
+    YT: any;
+  }
+}
 
-player = YouTubePlayer('video-player');
-
-// 'loadVideoById' is queued until the player is ready to receive API calls.
-player.loadVideoById('M7lc1UVf-VE');
-
-// 'playVideo' is queue until the player is ready to received API calls and after 'loadVideoById' has been called.
-player.playVideo();
-
-// 'stopVideo' is queued after 'playVideo'.
-player.stopVideo().then(() => {
-  // Every function returns a promise that is resolved after the target function has been executed.
-});
+const callback = window.onYouTubeIframeAPIReady;
+callback && callback();
 
 @Component({
   selector: 'app-root',
@@ -24,17 +30,18 @@ player.stopVideo().then(() => {
 export class AppComponent implements OnInit {
   tag: any;
   player;
-  done;
+  done: boolean;
+  youTubePlayer;
 
   ngOnInit() {
-    this.tag.id = 'iframe-demo';
-    this.tag.src = 'https://www.youtube.com/iframe_api';
-    var firstScriptTag = document.getElementsByTagName('script')[0];
-    firstScriptTag.parentNode.insertBefore(this.tag, firstScriptTag);
+    this.onYouTubeIframeAPIReady();
   }
 
   onYouTubeIframeAPIReady() {
-    this.player = new YouTubePlayer.Player('existing-iframe-example', {
+    this.player = new window.YT.Player('player', {
+      width: 250,
+      height: 150,
+      videoId: 'M7lc1UVf-VE',
       events: {
         onReady: this.onPlayerReady,
         onStateChange: this.onPlayerStateChange,
@@ -47,7 +54,7 @@ export class AppComponent implements OnInit {
   }
 
   onPlayerStateChange(event) {
-    if (event.data == YouTubePlayer.PlayerState.PLAYING && !this.done) {
+    if (event.data == window.YT.PlayerState.PLAYING && !this.done) {
       setTimeout(this.stopVideo, 6000);
       this.done = true;
     }
@@ -56,10 +63,12 @@ export class AppComponent implements OnInit {
   stopVideo() {
     this.player.stopVideo();
   }
-}
 
-/*
-Copyright Google LLC. All Rights Reserved.
-Use of this source code is governed by an MIT-style license that
-can be found in the LICENSE file at http://angular.io/license
-*/
+  playVideo(){
+    this.player.playVideo()
+  }
+
+  
+
+
+}
