@@ -29,18 +29,18 @@ callback && callback();
   styleUrls: ['./app.component.css'],
 })
 export class AppComponent implements OnInit, AfterViewInit {
-  tag: any;
+  // tag: any;
   player;
   done: boolean = false;
   youTubePlayer;
   videoId: string = 'https://www.youtube.com/watch?v=vwjThI3mMHM';
 
   ngOnInit() {
-  }
-  
-  ngAfterViewInit(){
     this.onYouTubeIframeAPIReady();
-    
+  }
+
+  ngAfterViewInit() {
+    this.onYouTubeIframeAPIReady();
   }
 
   onYouTubeIframeAPIReady() {
@@ -51,6 +51,7 @@ export class AppComponent implements OnInit, AfterViewInit {
         onStateChange: this.onPlayerStateChange,
       },
     });
+    this.done = true;
   }
 
   detroy() {
