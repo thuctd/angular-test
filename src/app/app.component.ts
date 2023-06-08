@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { AfterViewInit, Component, OnInit } from '@angular/core';
 
 var tag = document.createElement('script');
 tag.id = 'iframe-demo';
@@ -28,15 +28,19 @@ callback && callback();
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
 })
-export class AppComponent implements OnInit {
+export class AppComponent implements OnInit, AfterViewInit {
   tag: any;
   player;
   done: boolean = false;
   youTubePlayer;
-  videoId: string = '';
+  videoId: string = 'https://www.youtube.com/watch?v=vwjThI3mMHM';
 
   ngOnInit() {
+  }
+  
+  ngAfterViewInit(){
     this.onYouTubeIframeAPIReady();
+    
   }
 
   onYouTubeIframeAPIReady() {
