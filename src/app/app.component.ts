@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+
 var tag = document.createElement('script');
 tag.id = 'iframe-demo';
 tag.src = 'https://www.youtube.com/iframe_api';
@@ -30,8 +31,9 @@ callback && callback();
 export class AppComponent implements OnInit {
   tag: any;
   player;
-  done: boolean = false
+  done: boolean = false;
   youTubePlayer;
+  videoId: string = '';
 
   ngOnInit() {
     this.onYouTubeIframeAPIReady();
@@ -39,7 +41,7 @@ export class AppComponent implements OnInit {
 
   onYouTubeIframeAPIReady() {
     this.player = new window.YT.Player('player', {
-      videoId: 'L6IgamUTkuY',
+      videoId: this.videoId.split('v=')[1],
       events: {
         onReady: this.onPlayerReady,
         onStateChange: this.onPlayerStateChange,
@@ -47,7 +49,16 @@ export class AppComponent implements OnInit {
     });
   }
 
+  detroy() {
+    console.log(this.player);
+    // if(this.player)
+    this.player.destroy();
+    this.onYouTubeIframeAPIReady();
+  }
+
   onPlayerReady(event) {
+    console.log(this.player);
+
     event.target.playVideo();
   }
 
@@ -59,14 +70,20 @@ export class AppComponent implements OnInit {
   }
 
   stopVideo() {
+    console.log(this.player);
+
     this.player.stopVideo();
   }
 
   playVideo() {
+    console.log(this.player);
+
     this.player.playVideo();
   }
 
   pauseVideo() {
+    console.log(this.player);
+
     this.player.pauseVideo();
   }
 }

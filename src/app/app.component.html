@@ -2,12 +2,16 @@
   
   <!-- <router-outlet></router-outlet> -->
 
-<div style="width: 250px; height: 250px" id="player"></div>
+  <!-- https://www.youtube.com/watch?v=vwjThI3mMHM -->
+
+<div style="width: 250px; height: 250px" id="player"  ></div>
 <hr>
 <div class="row">
+  <input type="text" [(ngModel)]="videoId" (change)="detroy()">
   <button (click)="stopVideo()" > stopVideo </button>
   <button (click)="playVideo()" > playVideo </button>
   <button (click)="pauseVideo()" > pauseVideo </button>
+  <button (click)="detroy()" > detroy  </button>
 </div>
 
 
