@@ -1,11 +1,5 @@
 import { AfterViewInit, Component, OnInit } from '@angular/core';
 
-var tag = document.createElement('script');
-tag.id = 'iframe-demo';
-tag.src = 'https://www.youtube.com/iframe_api';
-var firstScriptTag = document.getElementsByTagName('script')[0];
-firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
-
 declare global {
   interface Window {
     recaptchaVerifier: any; // 👈️ turn off type checking
@@ -28,7 +22,7 @@ callback && callback();
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
 })
-export class AppComponent implements OnInit, AfterViewInit {
+export class AppComponent implements OnInit {
   // tag: any;
   player;
   done: boolean = false;
@@ -36,27 +30,29 @@ export class AppComponent implements OnInit, AfterViewInit {
   videoId: string = 'https://www.youtube.com/watch?v=vwjThI3mMHM';
 
   ngOnInit() {
-    this.onYouTubeIframeAPIReady();
-  }
-
-  ngAfterViewInit() {
-    this.onYouTubeIframeAPIReady();
+    var tag = document.createElement('script');
+    tag.id = 'iframe-demo';
+    tag.src = 'https://www.youtube.com/iframe_api';
+    var firstScriptTag = document.getElementsByTagName('script')[0];
+    firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
   }
 
   onYouTubeIframeAPIReady() {
-    this.player = new window.YT.Player('player', {
-      videoId: this.videoId.split('v=')[1],
-      events: {
-        onReady: this.onPlayerReady,
-        onStateChange: this.onPlayerStateChange,
-      },
-    });
-    this.done = true;
+    if (!this.player) {
+      this.player = new window.YT.Player('player', {
+        videoId: this.videoId.split('v=')[1],
+        events: {
+          onReady: this.onPlayerReady,
+          onStateChange: this.onPlayerStateChange,
+        },
+      });
+      this.done = true;
+    }
   }
 
   detroy() {
     console.log(this.player);
-    // if(this.player)
+    if (!this.player) return;
     this.player.destroy();
     this.onYouTubeIframeAPIReady();
   }
@@ -81,8 +77,8 @@ export class AppComponent implements OnInit, AfterViewInit {
   }
 
   playVideo() {
+    this.onYouTubeIframeAPIReady();
     console.log(this.player);
-
     this.player.playVideo();
   }
 
