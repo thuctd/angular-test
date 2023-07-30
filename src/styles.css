@@ -64,6 +64,9 @@
 /* ---------------------------------ANIMATION CSS-------------------------------------------*/
 
 
+
+
+
 * {
   font-family: 'Roboto', Arial, sans-serif;
   color: #616161;
@@ -81,7 +84,7 @@ body {
   flex-direction: row;
 }
 
-router-outlet + *  {
+router-outlet + * {
   padding: 0 16px;
 }
 
@@ -95,7 +98,8 @@ h2 {
   font-size: 20px;
 }
 
-h1, h2 {
+h1,
+h2 {
   font-weight: lighter;
 }
 
@@ -122,7 +126,7 @@ input {
   border-radius: 2px;
   padding: 8px;
   margin-bottom: 16px;
-  border: 1px solid #BDBDBD;
+  border: 1px solid #bdbdbd;
 }
 
 label {
@@ -134,7 +138,8 @@ label {
 }
 
 /* Button */
-.button, button {
+.button,
+button {
   display: inline-flex;
   align-items: center;
   padding: 8px 16px;
@@ -146,12 +151,14 @@ label {
   border: none;
 }
 
-.button:hover, button:hover {
+.button:hover,
+button:hover {
   opacity: 0.8;
   font-weight: normal;
 }
 
-.button:disabled, button:disabled {
+.button:disabled,
+button:disabled {
   opacity: 0.5;
   cursor: auto;
 }
@@ -188,7 +195,8 @@ app-top-bar h1 {
 
 /* Checkout Cart, Shipping Prices */
 
-.cart-item, .shipping-item {
+.cart-item,
+.shipping-item {
   width: 100%;
   min-width: 400px;
   max-width: 450px;
@@ -198,9 +206,8 @@ app-top-bar h1 {
   padding: 16px 32px;
   margin-bottom: 8px;
   border-radius: 2px;
-  background-color: #EEEEEE;
+  background-color: #eeeeee;
 }
-
 
 /*
 Copyright Google LLC. All Rights Reserved.

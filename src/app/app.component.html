@@ -6,10 +6,10 @@
   <div
     style="width: 250px; height: 250px"
     id="player"
-    [animate]="'fade-right'"
+    [appScrollIntoView]="'fade-right'"
   ></div>
   <hr />
-  <div class="row" [animate]="'fade-right'">
+  <div class="row" [appScrollIntoView]="'fade-right'">
     <input type="text" [(ngModel)]="videoId" (change)="detroy()" />
     <button (click)="stopVideo()">stopVideo</button>
     <button (click)="playVideo()">playVideo</button>
@@ -87,7 +87,7 @@ https://www.youtube.com/watch?v=vwjThI3mMHM
   desktop publishing software like Aldus PageMaker including versions of Lorem
   Ipsum.
 </p>
-<div [animate]="'fade-right'">
+<div [appScrollIntoView]="'fade-right'">
   <!-- Your content goes here -->
   xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
   xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx

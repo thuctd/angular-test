@@ -7,10 +7,10 @@ import {
 } from '@angular/core';
 
 @Directive({
-  selector: '[animate]',
+  selector: '[appScrollIntoView]',
 })
-export class AniamteDirective {
-  @Input('animate') myVariable: string;
+export class ScrollIntoViewDirective {
+  @Input('appScrollIntoView') myVariable: string;
   private isElementVisible = false;
 
   constructor(private elementRef: ElementRef, private renderer: Renderer2) {}
@@ -32,11 +32,11 @@ export class AniamteDirective {
 
       if (isVisible) {
         // Element is scrolled into view
-        console.log(this.myVariable);
+        console.log(this.myVariable)
         this.renderer.addClass(this.elementRef.nativeElement, this.myVariable);
       } else {
         // Element is scrolled out of view
-        console.log(this.myVariable);
+        console.log(this.myVariable)
 
         this.renderer.removeClass(
           this.elementRef.nativeElement,
