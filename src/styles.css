@@ -1,5 +1,69 @@
 /* Global Styles */
 
+/* ---------------------------------ANIMATION CSS-------------------------------------------*/
+
+.fade-up {
+  opacity: 0; /* Set initial opacity to 0 */
+  transform: translateY(80px); /* Start the element 20px below its original position */
+  animation: fadeInUpAnimation 1s forwards; /* Animation properties */
+  animation-duration: 1s;
+}
+
+.fade-down {
+  opacity: 0; /* Set initial opacity to 0 */
+  transform: translateY(-80px); /* Start the element 20px below its original position */
+  animation: fadeInUpAnimation 1s forwards; /* Animation properties */
+  animation-duration: 1s;
+}
+
+@keyframes fadeInUpAnimation {
+  to {
+    opacity: 1; /* Animate opacity to 1 (fully visible) */
+    transform: translateY(0); /* Animate to its original position (0) */
+  }
+}
+
+
+/* Applying the animation */
+.fade-left {
+  opacity: 0; /* Set initial opacity to 0 */
+  transform: translateX(100%); /* Start the element outside the viewport */
+  animation: slideInAnimation 1s forwards; /* Animation properties */
+  animation-duration: 2s;
+}
+
+.fade-right {
+  opacity: 0; /* Set initial opacity to 0 */
+  transform: translateX(-100%); /* Start the element outside the viewport */
+  animation: slideInAnimation 1s forwards; /* Animation properties */
+  animation-duration: 2s;
+}
+
+@keyframes slideInAnimation {
+  to {
+    opacity: 1; /* Animate opacity to 1 (fully visible) */
+    transform: translateX(0); /* Animate to initial position (0) */
+  }
+}
+
+.slideOut {
+  opacity: 1; /* Set initial opacity to 1 */
+  transform: translateX(0); /* Start the element at its initial position (0) */
+  animation: slideOutAnimation 1s forwards; /* Animation properties */
+}
+
+@keyframes slideOutAnimation {
+  to {
+    opacity: 0; /* Animate opacity to 0 (fully transparent) */
+    transform: translateX(
+      100%
+    ); /* Animate to position outside the viewport (100%) */
+  }
+}
+
+/* ---------------------------------ANIMATION CSS-------------------------------------------*/
+
+
 * {
   font-family: 'Roboto', Arial, sans-serif;
   color: #616161;
