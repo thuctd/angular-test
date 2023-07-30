@@ -7,10 +7,10 @@ import {
 } from '@angular/core';
 
 @Directive({
-  selector: '[animate]',
+  selector: '[fade]',
 })
 export class ScrollIntoViewDirective {
-  @Input('animate') myVariable: string;
+  @Input('fade') myVariable: string;
   private isElementVisible = false;
 
   constructor(private elementRef: ElementRef, private renderer: Renderer2) {}
