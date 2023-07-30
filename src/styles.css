@@ -29,14 +29,14 @@
   opacity: 0; /* Set initial opacity to 0 */
   transform: translateX(100%); /* Start the element outside the viewport */
   animation: slideInAnimation 1s forwards; /* Animation properties */
-  animation-duration: 2s;
+  animation-duration: 1s;
 }
 
 .fade-right {
   opacity: 0; /* Set initial opacity to 0 */
   transform: translateX(-100%); /* Start the element outside the viewport */
   animation: slideInAnimation 1s forwards; /* Animation properties */
-  animation-duration: 2s;
+  animation-duration: 1s;
 }
 
 @keyframes slideInAnimation {

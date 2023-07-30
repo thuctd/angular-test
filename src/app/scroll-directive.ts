@@ -7,10 +7,10 @@ import {
 } from '@angular/core';
 
 @Directive({
-  selector: '[appScrollIntoView]',
+  selector: '[animate]',
 })
 export class ScrollIntoViewDirective {
-  @Input('appScrollIntoView') myVariable: string;
+  @Input('animate') myVariable: string;
   private isElementVisible = false;
 
   constructor(private elementRef: ElementRef, private renderer: Renderer2) {}
@@ -20,7 +20,9 @@ export class ScrollIntoViewDirective {
     const elementPosition = element.getBoundingClientRect();
     const screenHeight = window.innerHeight;
 
-    return elementPosition.top < screenHeight && elementPosition.bottom >= 0;
+    return (
+      elementPosition.top + 80 < screenHeight && elementPosition.bottom >= 0
+    );
   }
 
   @HostListener('window:scroll', [])
@@ -32,11 +34,10 @@ export class ScrollIntoViewDirective {
 
       if (isVisible) {
         // Element is scrolled into view
-        console.log(this.myVariable)
+
         this.renderer.addClass(this.elementRef.nativeElement, this.myVariable);
       } else {
         // Element is scrolled out of view
-        console.log(this.myVariable)
 
         this.renderer.removeClass(
           this.elementRef.nativeElement,
