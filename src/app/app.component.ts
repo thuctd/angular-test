@@ -1,4 +1,6 @@
 import { AfterViewInit, Component, OnInit } from '@angular/core';
+import { jsPDF } from 'jspdf';
+import html2canvas from 'html2canvas';
 
 declare global {
   interface Window {
@@ -28,6 +30,31 @@ export class AppComponent implements OnInit {
   done: boolean = false;
   youTubePlayer;
   videoId: string = 'https://www.youtube.com/watch?v=vwjThI3mMHM';
+
+  convertToPDF() {
+    const element = document.getElementById('test');
+
+    if (element) {
+      html2canvas(element).then((canvas) => {
+        console.log(canvas);
+        const contentDataURL = canvas.toDataURL('image/png');
+        const pdf = new jsPDF({
+          orientation: 'landscape',
+          unit: 'px',
+          format: [+canvas.height, +canvas.width],
+        });
+        pdf.addImage(
+          contentDataURL,
+          'PNG',
+          0,
+          0,
+          pdf.internal.pageSize.getWidth(),
+          pdf.internal.pageSize.getHeight()
+        );
+        pdf.save('your_file.pdf');
+      });
+    }
+  }
 
   ngOnInit() {
     var tag = document.createElement('script');
