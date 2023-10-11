@@ -15,10 +15,17 @@ import { ScrollIntoViewDirective } from './scroll-directive';
     FormsModule,
     CommonModule,
     ReactiveFormsModule,
-    RouterModule.forRoot([{ path: '', component: ProductListComponent }]),
+    RouterModule.forRoot([
+      { path: 'home', component: AppComponent },
+      { path: 'test', component: ProductListComponent },
+    ]),
   ],
-  declarations: [AppComponent, TopBarComponent, ProductListComponent,
-    ScrollIntoViewDirective],
+  declarations: [
+    AppComponent,
+    TopBarComponent,
+    ProductListComponent,
+    ScrollIntoViewDirective,
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

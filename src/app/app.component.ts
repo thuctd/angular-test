@@ -33,7 +33,6 @@ export class AppComponent implements OnInit {
 
   convertToPDF() {
     const element = document.getElementById('test');
-
     if (element) {
       html2canvas(element).then((canvas) => {
         console.log(canvas);
