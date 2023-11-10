@@ -16,6 +16,7 @@ import { ScrollIntoViewDirective } from './scroll-directive';
     CommonModule,
     ReactiveFormsModule,
     RouterModule.forRoot([
+      { path: '', component: CalendarComponent },
       { path: 'home', component: AppComponent },
       { path: 'test', component: ProductListComponent },
     ]),
