@@ -8,6 +8,8 @@ import { ProductListComponent } from './product-list/product-list.component';
 import { TopBarComponent } from './top-bar/top-bar.component';
 import { CommonModule } from '@angular/common';
 import { ScrollIntoViewDirective } from './scroll-directive';
+import { EditorComponent } from './editor/editor.component';
+import { EditorModule } from '@tinymce/tinymce-angular';
 
 @NgModule({
   imports: [
@@ -16,14 +18,15 @@ import { ScrollIntoViewDirective } from './scroll-directive';
     CommonModule,
     ReactiveFormsModule,
     RouterModule.forRoot([
-      { path: '', component: CalendarComponent },
       { path: 'home', component: AppComponent },
-      { path: 'test', component: ProductListComponent },
+      { path: 'editor', component: EditorComponent },
     ]),
+    EditorModule
   ],
   declarations: [
     AppComponent,
     TopBarComponent,
+    EditorComponent,
     ProductListComponent,
     ScrollIntoViewDirective,
   ],

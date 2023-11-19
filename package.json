@@ -12,6 +12,7 @@
     "@angular/platform-browser-dynamic": "^14.2.2",
     "@angular/router": "^14.2.2",
     "@angular/youtube-player": "^14.2.7",
+    "@tinymce/tinymce-angular": "^7.0.0",
     "@types/jspdf": "^2.0.0",
     "angular-in-memory-web-api": "^0.14.0",
     "core-js": "^3.25.2",
